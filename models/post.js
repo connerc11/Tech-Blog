@@ -5,10 +5,8 @@ class Post extends Model {}
 
 Post.init (
     {
-    body: {
         title: DataTypes.STRING,
         body: DataTypes.STRING
-    }
     },
     {
         sequelize

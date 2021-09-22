@@ -23,7 +23,7 @@ const sess = {
 
 // const helpers = require('./utils/helpers');
 
-// const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create();
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
