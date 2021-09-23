@@ -3,13 +3,33 @@ const sequelize = require('../config/connection');
 
 class Post extends Model {}
 
-Post.init (
-    {
-        title: DataTypes.STRING,
-        body: DataTypes.STRING
+Post.init ({
+    id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
     },
+    title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'user',
+            key: 'id'
+        },
+    },
+    post_content: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+    }
+},
     {
-        sequelize
+        sequelize,
+        modelName: 'post'
     }
 );
 

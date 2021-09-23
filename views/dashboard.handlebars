@@ -1,6 +1,21 @@
-<div>
-    {{#each posts}}
-    <h1>
-         hello World 
-    </h1> {{/each}}
-</div>
+<section class="new-post-section">
+    <h2>Create a New Post</h2>
+    <button type="submit" class="btn" id="create-new-post"> Create a new post</button>
+</section>
+
+
+{{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/add-post.js"></script>
