@@ -22,13 +22,18 @@ Post.init ({
             key: 'id'
         },
     },
-    post_content: {
+    post_url: {
         type: DataTypes.TEXT,
-        allowNull: true,
+        allowNull: false,
+        validate: {
+            isUrl: true
+        }
     }
 },
     {
         sequelize,
+        freezeTableName: true,
+        underscored: true,
         modelName: 'post'
     }
 );

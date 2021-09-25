@@ -1,5 +1,4 @@
 const { Post } = require('../models');
-const seedUsers = require('./user-seeds');
 
 const postData = [{
     title: 'random post 1',
