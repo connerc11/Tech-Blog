@@ -1,4 +1,4 @@
-const {Sequelize, Model, DataTypes} = require('sequelize');
+const { Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
@@ -19,7 +19,10 @@ User.init(
       },
       username: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        }
       },
       password: {
         type: DataTypes.STRING,

@@ -1,12 +1,7 @@
-<div>
-    <h1>
-        Homepage
-</div>
-    </h1>
-</div>
-
-{{!-- 
-
-        {{#each posts as |post|}}
-
-{{> post-info post }} --}}
+<ul class="post-list">
+  {{#each posts as |post|}}
+  <li>
+    {{> post-info post }}
+  </li>
+  {{/each}}
+</ul>

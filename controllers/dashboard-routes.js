@@ -7,11 +7,16 @@ router.get('/', withAuth, (req, res) => {
       where: {
         user_id: req.session.user_id
       },
-      
+      attributes: [
+        'id',
+        'title',
+        'created_at',
+        'post_url'
+      ],
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: ['id', 'comment_text', 'post_url', 'user_id', 'created_at'],
           include: {
             model: User,
             attributes: ['username']
@@ -34,22 +39,30 @@ router.get('/', withAuth, (req, res) => {
   });
 
   router.get('/edit/:id', withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
-      
-    //   include: [
-    //     {
-    //       model: Comment,
-    //       attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-    //       include: {
-    //         model: User,
-    //         attributes: ['username']
-    //       }
-    //     },
-    //     {
-    //       model: User,
-    //       attributes: ['username']
-    //     }
-    //   ]
+    Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        'id',
+        'title',
+        'created_at',
+        'post_url'
+      ],
+      include: [
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_url', 'user_id', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['username', 'twitter', 'github']
+          }
+        },
+        {
+          model: User,
+          attributes: ['username', 'twitter', 'github']
+        }
+      ]
     })
       .then(dbPostData => {
         if (dbPostData) {

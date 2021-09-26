@@ -21,30 +21,36 @@ router.get('/', async (req, res) => {
   } catch (error) {
       res.status(500).json(error)
   }
-//   Post.findAll({
+  Post.findAll({
+    attributes: [
+      'id',
+      'title',
+      'created_at',
+      'post_url'
+    ],
     
-//     include: [
-//       {
-//         model: Comment,
-//         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-//         include: {
-//           model: User,
-//           attributes: ['username']
-//         }
-//       },
-//       {
-//         model: User,
-//         attributes: ['username']
-//       }
-//     ]
-//   })
-//     .then(dbPostData => {
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_url', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbPostData => {
       
-//     })
-//     .catch(err => {
+    })
+    .catch(err => {
     
-//       res.status(500).json(err);
-//     });
+      res.status(500).json(err);
+    });
 });
 
 // get single post
@@ -53,11 +59,17 @@ router.get('/post/:id', (req, res) => {
     where: {
       id: req.params.id
     },
+    attributes: [
+      'id',
+      'title',
+      'created_at',
+      'post_url'
+    ],
     
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'post_url', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -95,6 +107,15 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
 });
 
 module.exports = router;

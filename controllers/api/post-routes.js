@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: ['id', 'comment_text', 'post_url', 'user_id', 'created_at'],
           include: {
             model: User,
             attributes: ['username']
@@ -45,12 +45,12 @@ router.get('/', (req, res) => {
         'id',
         'title',
         'created_at',
-        'post_content'
+        'post_url'
       ],
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: ['id', 'comment_text', 'post_url', 'user_id', 'created_at'],
           include: {
             model: User,
             attributes: ['username']
@@ -79,7 +79,7 @@ router.get('/', (req, res) => {
     // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
       title: req.body.title,
-      post_content: req.body.post_content,
+      post_url: req.body.post_url,
       user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
@@ -94,7 +94,7 @@ router.get('/', (req, res) => {
     Post.update(
       {
         title: req.body.title,
-        post_content: req.body.post_content,
+        post_url: req.body.post_url,
       },
       {
         where: {

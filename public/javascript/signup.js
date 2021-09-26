@@ -1,4 +1,4 @@
-const { post } = require("../../controllers");
+
 
 async function signUpFormHandler(event) {
     event.preventDefault();
@@ -23,7 +23,7 @@ async function signUpFormHandler(event) {
        }
     }
 
-    document.querySelector('signup-form').addEventListener('submit', signUpFormHandler);
+    document.querySelector('.signup-form').addEventListener('submit', signUpFormHandler);
 
 
 
