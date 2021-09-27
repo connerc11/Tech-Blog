@@ -18,6 +18,7 @@
           <span><a href="/">Home</a></span> 
           {{#if loggedIn}}
           <a href="/dashboard">Dashboard</a>
+          <a href="/dashboard/create" Create Post></a>
           <button id="logout" class="btn-no-style">Logout</button>
           {{else}}
           <a href="/login">Login</a>
@@ -29,6 +30,23 @@
     </main>
     
     <footer>
+        <div >
+            <p>
+            <a href="/">homepage</a>{{#if loggedIn}} | 
+            <a href="/dashboard/">dashboard</a> | 
+            <a href="/dashboard/add/">create new post</a>
+            {{else}}
+             | <a href="/login/">login</a>
+            {{/if}}
+            </p>
+        </div>
+</div>
+    </footer>
+  </div>
+
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
       Thank you for visiting the Tech Blog!
     </footer>
   </div>
