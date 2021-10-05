@@ -2,17 +2,20 @@ const { Post } = require('../models');
 
 const postData = [{
     title: 'random post 1',
-    content: 'random text 1',
+
+    post_url: 'hello',
     user_id: 1
 },
 {
     title: 'random post 2',
-    content: 'random text 2',
+
+    post_url: 'hello',
     user_id: 2
 },
 {
     title: 'random post 3',
-    content: 'random text 3',
+    
+    post_url: 'hello',
     user_id: 3
 },
 ]

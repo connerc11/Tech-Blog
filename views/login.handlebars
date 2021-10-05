@@ -1,17 +1,18 @@
-<form class="login-form">
+<form class="login-form" id="login-form">
   <div>
-    <label for="username-login">USERNAME:</label>
-    <input type="text" id="username-login"/>
+    <label class="form-label" for="username-login">USERNAME:</label>
+    <input type="text" id="username-login" class="form-input"/>
   </div>
   <div>
-    <label for="password-login">PASSWORD:</label>
-    <input type="password" id="password-login" />
+    <label class="form-label" for="password-login">PASSWORD:</label>
+    <input type="password" id="password-login" class="form-input"/>
   </div>
   <div>
-    <button type="submit">LOGIN</button>
+    <button type="submit" class="btn">LOGIN</button>
   </div>
+  <a class="login-link" href="/signup">Don't have an account, sign up instead!</a>
 </form>
 
-<a href="/signup">Don't have an account, sign up instead!</a>
+
 
 <script src="/javascript/login.js"></script>

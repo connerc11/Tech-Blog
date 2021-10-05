@@ -16,44 +16,36 @@
       </h1>
         <nav>
           <span><a href="/">Home</a></span> 
+          <a href="/"><button class="btn">Home</button></a>
           {{#if loggedIn}}
           <a href="/dashboard">Dashboard</a>
-          <a href="/dashboard/create" Create Post></a>
-          <button id="logout" class="btn-no-style">Logout</button>
+          <button id="logout" class="btn-no-style" href="/">Logout</button>
           {{else}}
           <a href="/login">Login</a>
           {{/if}}
         </nav>
     </header>
+    <div>
+      <h1>Welcome to the : TECH BLOG</h1>
+    </div>
+    
     <main>
       {{{ body }}}
     </main>
+    </div>
     
-    <footer>
-        <div >
-            <p>
-            <a href="/">homepage</a>{{#if loggedIn}} | 
-            <a href="/dashboard/">dashboard</a> | 
-            <a href="/dashboard/add/">create new post</a>
-            {{else}}
-             | <a href="/login/">login</a>
-            {{/if}}
-            </p>
-        </div>
-</div>
-    </footer>
-  </div>
-
+   <footer>
+     <h4>Thanks for visiting the Tech Blog!</h4>
+   </footer> 
+      
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
-{{/if}}
-      Thank you for visiting the Tech Blog!
-    </footer>
-  </div>
 
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
+     
+    {{/if}}
+
+
+ 
 
 </body>
 
