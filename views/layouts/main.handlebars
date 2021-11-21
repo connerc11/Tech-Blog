@@ -15,11 +15,12 @@
         <a href="/">The Tech Blog</a>
       </h1>
         <nav>
-          <span><a href="/">Home</a></span> 
+          <span>
           <a href="/"><button class="btn">Home</button></a>
+          </span>
           {{#if loggedIn}}
           <a href="/dashboard">Dashboard</a>
-          <button id="logout" class="btn-no-style" href="/">Logout</button>
+          <a id="logout" class="btn-no-style" href="/">Logout</a>
           {{else}}
           <a href="/login">Login</a>
           {{/if}}
